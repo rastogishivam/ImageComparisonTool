@@ -1,0 +1,286 @@
+<html>
+<head>
+<title>::eRS - Comparison Report::</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="Stylesheet" href="css/jquery_DataTable_min.css" />
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/w3.css">
+<link rel="stylesheet" type="text/css" href="css/navBar.css">
+<script type="text/javascript" src="Scripts/jquery_pag_1_12.js"></script>
+<script type="text/javascript" src="Scripts/jquery_DataTable_min.js"></script>
+<script type="text/javascript" src="Scripts/colorCode.js"></script>
+<script type="text/javascript" src="Scripts/imageProperty.js"></script>
+
+<style>
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 70px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/*new css start*/
+.table100.ver5 .table-striped {border-collapse: collapse;padding:0;border-left: 0 none; border-right: 0 none; white-space: normal;word-break: break-all;}
+.table .thead-light th {
+	color: #495057;
+	background-color: #e9ecef;
+	border-color: #dee2e6;
+	border-bottom: 0;
+	font-weight: 600;
+	font-family: Verdana,sans-serif;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 13px;
+}
+.table100.ver5 .table-striped tbody tr td{font-size: 15px;font-family: Verdana,sans-serif; text-align: center;}
+.table100.ver5 .table-striped tbody tr:nth-child(even) {
+	background-color: #fff;
+}
+.table100.ver5 .table-striped tbody tr td:first-child{border-left:0  none;}
+.table100.ver5 .table-striped tbody tr td:last-child{border-right:0 none;}
+body{background-color: #ffffff !important;background-image:none !important;	padding:0 !important;margin:0 !important;}
+.panel.panel-default.col-md-12 .dataTables_wrapper{padding: 0;}
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_length label,
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_filter label{
+	padding: 0 10px; font-weight: normal;color:#777;margin-top:10px;
+}
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_length label select,
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_filter label input{
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	padding: 6px 12px;
+}
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_info{padding: 4px 10px;}
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_paginate{padding: 0px 10px 5px;}
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_paginate .paginate_button{padding:0.3em 1em;color: #23527c !important;background-color: #f8f8f8;	border-color: #ddd;}
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_paginate .paginate_button:hover{color: #23527c !important;background: #f2f2f2; border-color: #ddd;}
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.panel.panel-default.col-md-12 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{color: #fff !important;cursor: default;background: #337ab7;border-color: #337ab7;
+}
+/*new css end*/
+
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 1600px;
+}
+
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 17px;
+	font-weight: bold;
+	transition: 0.3s;
+	opacity: 0.9;
+	border: 2px solid #fff;
+	height: 30px;
+	line-height: 16px;
+	width: 30px;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+</style>
+
+</head>
+<body>
+<div class="row" style="margin-bottom: 10px;">
+	<div class="col-md-2">
+		<img src="images/altaIcon.png" height="42px">
+	</div>
+	<div class="col-md-9">
+		<div class="row">
+			<div class="col-md-12 text-center" style=" font-weight: 500; font-size: 25px;padding-bottom:0;">COMPARISON TESTING REPORT</div>
+			<div class="col-md-12 text-center">Created by Altametrics Inc.</div>
+		</div>
+	</div>
+</div>
+<div class="col-md-12">
+<div class="panel panel-default" style="padding:0">
+	<div class="panel-heading">Show / Hide Chart View  <button class="btn-link pull-right" onclick="myFunction()"; style="padding: 0; margin-top: -5px;"><img src="images/down-arrow.png" width="30"></button></div>
+	<div class="panel-body" style="padding: 0 10px 25px 5px">
+		<div id="chartContainer" style="width: 99%; height: 280px;margin: 0"></div>
+	</div>
+</div>
+</div>
+
+<div class="limiter" >
+<div class="container-table100">
+<div class="wrap-table100">
+<div class="table100 ver5 m-b-110">
+	<div class="panel panel-default col-md-12" style="padding: 0;">
+		<div id="myModal" class="modal">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="img01">
+		</div>
+	<table class="table table-bordered table-striped" style="table-layout: fixed" id="t01">
+		<thead class="thead-light">
+		<tr>
+			<th style="width: 90px !important;">Serial No. </th>
+			<th>Screen Name</th>
+			<th>{{app1Id}}</th>
+			<th>{{app2Id}}</th>
+			<th>Difference between Images</th>
+			<th>Similarity between Images in %</th>
+		</tr>
+		</thead>
+		<tbody>
+	{{#reportData}}
+		<tr>
+			<td >{{counter}}</td>
+			<td >{{screenName}}</td>
+			<td><img id="myImg" src="{{actualImagePath}}" style="width:100%;max-width:200px; height:50px " onclick="myfunction(this.src)"></td>
+			<td><img id="myImg" src="{{exceptedImagePath}}" style="width:100%;max-width:200px; height:50px " onclick="myfunction(this.src)"></td>
+			<td><img id="myImg" src="{{differenceImage}}" style="width:100%;max-width:200px; height:50px " onclick="myfunction(this.src)"></td>
+			<td>{{similarityOfImages}} %</td>
+		</tr>
+	{{/reportData}}
+		</tbody>
+	</table>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("chartContainer");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+{{#reportChartData}}
+<script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+    backgroundColor: "#FFFFFF",
+      title:{
+        text: "Stats in Bar Chart",
+         fontColor: "#333"
+      },
+      data: [
+      {
+        type: "bar",
+       dataPoints: [
+        { y: {{totalNotDiffImages}}, label: "Total No. of Matched Images"},
+        { y: {{totalDiffImages}}, label: "Total No. of Mismatched Images"},
+        { y: {{totalImages}}, label: "Total No. of Images"}
+        ]
+      },
+      ]
+    });
+
+chart.render();
+}
+</script>
+{{/reportChartData}}
+<script>
+$(document).ready(function() {
+    $('#t01').DataTable( {
+        initComplete: function () {
+            this.api().columns().every( function () {
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+                //to select and search from grid
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+            } );
+        }
+    } );
+} );
+</script>
+<script>
+doColor();
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal -
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+imgClose();
+</script>
+</body>
+</html>
